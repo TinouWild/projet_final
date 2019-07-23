@@ -10,6 +10,7 @@ class App(QtWidgets.QWidget):
         self.setup_ui()
         self.set_default_values()
         self.setup_connections()
+        self.setup_css()
         self.compute()
 
     def setup_ui(self):
@@ -42,6 +43,12 @@ class App(QtWidgets.QWidget):
         self.cbb_devisesTo.activated.connect(self.compute)
         self.spn_montant.valueChanged.connect(self.compute)
         self.btn_inverser.clicked.connect(self.inverser_devise)
+
+    def setup_css(self):
+        self.setStyleSheet("""
+            background-color: rgb(30, 30, 30);
+            color: rgb(240, 240, 240);
+        """)
 
     def compute(self):
         montant = self.spn_montant.value()
